@@ -105,10 +105,14 @@ while True:
     # You can use a decimal to pause for less than a second, e.g. time.sleep(.5)
     time.sleep(4)
 
-    # pixels.fill() sets every LED to the same color
     print ("Turning off all LEDs on the strip");
     for address in range(num_pixels):
         mirrorled.off(address)
+    time.sleep(2)
+
+    print ("Turning on all LEDs on the strip to be white");
+    for address in range(num_pixels):
+        mirrorled.on(address, WHITE)
     time.sleep(2)
 
     print("color_chase(BLUE): moves red across the strip")
