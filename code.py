@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-"""CircuitPython Essentials NeoPixel example"""
+"""CircuitPython simplified example to control neopixel strip for MirrorLED project"""
 import time
 import board
 from mirrorled import mirrorled
@@ -58,11 +58,17 @@ def color_chase(color, wait):
 #  color - The color to use for the LEDs
 #  wait - The number of seconds to wait between turning the LEDs on and off.
 def theater_chase(color, wait):
+    # Fix up edge condition: The last one or two pixels might not light up
+    # because the algorithm works in blocks of 3 pixels.  If you don't turn
+    # Them off, they will just be stuck on with the last color they were set to.
     if num_pixels > 1:
         mirrorled.off(num_pixels - 1)
     if num_pixels > 2:
         mirrorled.off(num_pixels - 2)
-    for j in range(10): #do 10 cycles of chasing
+
+    # Do 10 cycles of chasing
+    for j in range(10):
+        # Go through and set a pattern for every 3 pixels
         for q in range(3):
             for i in range(0, num_pixels-1, 3):
                 mirrorled.on(i+q,color) # turn every third pixel on
