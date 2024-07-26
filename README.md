@@ -20,3 +20,7 @@ The idea behind the electronics in this project is to control the lighting insid
 The lib directory contains a library 'mirrorled' that is just
 a very simple wrapper for the neopixel library that only allows you to 
 turn pixels on and off.  
+
+
+## Circuit Python Version
+The .mpy files in the lib/ directory are for student convenience.  They are compiled with the Circuit Python 9 release.  If you get a version mismatch, copy fresh versions from the Adafruit Circuit Python Library version for the version of Circuit Python shown in boot.out on your microprocessor.
